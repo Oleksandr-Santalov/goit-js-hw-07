@@ -13,16 +13,26 @@ const images = [
   },
 ];
 
+// const gallery = document.querySelector(".gallery");
+
+// images.forEach((image) => {
+//   const li = document.createElement("li");
+//   const img = document.createElement("img");
+
+//   img.src = image.url;
+//   img.alt = image.alt;
+
+//   li.appendChild(img);
+//   gallery.appendChild(li);
+//   li.classList.add("animal");
+// });
+
 const gallery = document.querySelector(".gallery");
 
-images.forEach((image) => {
-  const li = document.createElement("li");
-  const img = document.createElement("img");
+const imagesMarkup = images
+  .map((image) => {
+    return `<li class="animal"><img src="${image.url}" alt="${image.alt}"></li>`;
+  })
+  .join("");
 
-  img.src = image.url;
-  img.alt = image.alt;
-
-  li.appendChild(img);
-  gallery.appendChild(li);
-  li.classList.add("animal");
-});
+gallery.innerHTML = imagesMarkup;
